@@ -1,7 +1,7 @@
 <template>
-  <el-submenu :class="$style.elSubmenu" :index="list.id+''">
-    <template slot="title"><span class="elSubmenuTitle"><i class="fa fa-cogs"></i>{{list.name}}</span></template>
-    <el-menu-item :class="$style.elMenuItem" :index="list.id + '-' + index" v-for="(item,index) in list.children" :key="index">{{item.name}}</el-menu-item>
+  <el-submenu :class="$style.elSubmenu" :index="String(index)">
+    <template slot="title"><span class="elSubmenuTitle"><i class="fa fa-cogs"></i>{{itemList.name}}</span></template>
+    <el-menu-item :class="$style.elMenuItem" :index="String(item.id)" v-for="(item,index) in itemList.children" :key="index">{{item.name}}</el-menu-item>
   </el-submenu>
 </template>
 <script>
@@ -9,9 +9,7 @@ export default{
   data () {
     return {}
   },
-  props: {
-    list: Object
-  }
+  props: ['itemList', 'index']
 }
 </script>
 <style lang="stylus" scoped>

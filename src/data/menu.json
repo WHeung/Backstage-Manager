@@ -1,0 +1,82 @@
+{
+    "data": [
+        {
+            "children": [
+                {
+                    "id": 1001,
+                    "name": "表格",
+                    "url": "/model/Table",
+                    "visible": true
+                },
+                {
+                    "id": 1002,
+                    "name": "特卖订单列表",
+                    "url": "/assets/#/sales/orders",
+                    "visible": true
+                },
+                {
+                    "id": 1003,
+                    "name": "酒店信息管理",
+                    "url": "/assets/#/sales/hotels",
+                    "visible": true
+                },
+                {
+                    "id": 1004,
+                    "name": "专题页",
+                    "url": "/assets/#/sales/special",
+                    "visible": true
+                }
+            ],
+            "icon": "fa-cogs",
+            "id": 1,
+            "name": "功能模板",
+            "visible": true
+        },
+        {
+            "children": [
+                {
+                    "id": 2001,
+                    "name": "所有库存",
+                    "url": "/assets/#/sales/stock",
+                    "visible": true
+                },
+                {
+                    "id": 2002,
+                    "name": "特卖订单列表",
+                    "url": "/assets/#/sales/orders",
+                    "visible": true
+                },
+                {
+                    "id": 2003,
+                    "name": "酒店信息管理",
+                    "url": "/assets/#/sales/hotels",
+                    "visible": true
+                },
+                {
+                    "id": 2004,
+                    "name": "专题页",
+                    "url": "/assets/#/sales/special",
+                    "visible": true
+                }
+            ],
+            "icon": "fa-cogs",
+            "id": 2,
+            "name": "Item2",
+            "visible": true
+        },
+        {
+            "children": [
+                {
+                    "id": 3001,
+                    "name": "888预约列表",
+                    "url": "/assets/#/dreamTrip/orders",
+                    "visible": true
+                }
+            ],
+            "icon": "fa-cogs",
+            "id": 3,
+            "name": "888预约",
+            "visible": true
+        }
+    ]
+}

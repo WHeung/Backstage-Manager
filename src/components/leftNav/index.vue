@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.leftNav">
-    <el-menu :class="$style.elMenu" :default-openeds="defaultOpeneds" :default-active="defaultActive" :unique-opened="true"
+    <el-menu :class="$style.elMenu" :default-active="defaultActive" :unique-opened="true"
     @select="handleSelect">
-      <nav-list :list="item" v-for="(item,index) in data" :key="index"></nav-list>
+      <nav-list :itemList="item" :index="index" v-for="(item, index) in menuList" :key="index"></nav-list>
     </el-menu>
   </div>
 </template>
@@ -10,13 +10,14 @@
 <script>
 import * as types from '~src/store/types'
 import navList from './navList.vue'
+import data from '~src/data'
 
 export default {
   name: 'left-nav',
   data () {
     return {
-      defaultOpeneds: [],
-      defaultActive: ''
+      defaultActive: '',
+      menuList: data.menu.data
     }
   },
   created () {
@@ -24,7 +25,6 @@ export default {
       for (let i = 0; i < this.data.length; i++) {
         const item = this.data[i]
         if (item.id === 56) {
-          this.defaultOpeneds = [item.id + '']
           switch (this.$route.name) {
           case 'salesStock':
           case 'salesStockAdd':
@@ -44,7 +44,6 @@ export default {
           break
         }
         if (item.id === 116) {
-          this.defaultOpeneds = [item.id + '']
           switch (this.$route.name) {
           case 'dreamTripOrder':
             this.defaultActive = item.id + '-0'
@@ -62,16 +61,23 @@ export default {
   },
   methods: {
     handleSelect (index, indexPath) {
-      const arrIndex = index.split('-')
-      for (let i = 0; i < arrIndex.length; i++) {
-        arrIndex[i] = parseInt(arrIndex[i])
-      }
-      for (let i = 0; i < this.data.length; i++) {
-        if (this.data[i].id === arrIndex[0]) {
-          window.location.href = this.data[i].children[arrIndex[1]].url
-          break
-        }
-      }
+      console.log(index, indexPath)
+      const navIndex = indexPath[0]
+      const itemIndex = indexPath[1]
+      const selectItem = this.menuList[navIndex].children.find(item => {
+        return item.id + '' === itemIndex
+      })
+      this.$router.push({ path: selectItem.url })
+      // const arrIndex = index.split('-')
+      // for (let i = 0; i < arrIndex.length; i++) {
+      //   arrIndex[i] = parseInt(arrIndex[i])
+      // }
+      // for (let i = 0; i < this.data.length; i++) {
+      //   if (this.data[i].id === arrIndex[0]) {
+      //     window.location.href = this.data[i].children[arrIndex[1]].url
+      //     break
+      //   }
+      // }
     }
   },
   components: {

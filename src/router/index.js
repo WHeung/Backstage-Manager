@@ -15,6 +15,7 @@ const specialEdit = () => import(/* webpackChunkName: "special" */ '~src/views/s
 const dreamTripOrder = () => import(/* webpackChunkName: "dreamTrip" */ '~src/views/dreamTrip/orderListView/index.vue')
 const visaTaiwanIndex = () => import(/* webpackChunkName: "order" */ '~src/views/visaTaiwan/indexView/index.vue')
 const visaTaiwanDetail = () => import(/* webpackChunkName: "order" */ '~src/views/visaTaiwan/detailView/index.vue')
+const modelTable = () => import(/* webpackChunkName: "order" */ '~src/views/model/TableView/index.vue')
 
 Vue.use(Router)
 
@@ -34,6 +35,7 @@ export default new Router({
     { path: '/sales/special/:type/:operation/:id?', name: 'specialEdit', component: specialEdit },
     { path: '/dreamTrip/orders', name: 'dreamTripOrder', component: dreamTripOrder },
     { path: '/visatw', name: 'visaTwOrderList', component: visaTaiwanIndex },
-    { path: '/visatw/detail', name: 'visaTwOrder', component: visaTaiwanDetail }
+    { path: '/visatw/detail', name: 'visaTwOrder', component: visaTaiwanDetail },
+    { path: '/model/Table', name: 'modelTable', component: modelTable }
   ]
 })
