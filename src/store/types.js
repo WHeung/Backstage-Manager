@@ -1,5 +1,6 @@
 // mutation
 export const SET_MENU = 'menu/SET'
+export const SET_BREAD_NAV = 'bread_nav/SET'
 export const SET_SALES_LIST_TYPE = 'salesList/type/SET'
 export const SET_SALES_TABS = 'sales/tabs/SET'
 export const SET_SALES_FORM_MAIN = 'sales/form/main/SET'

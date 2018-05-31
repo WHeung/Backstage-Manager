@@ -12,11 +12,15 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    menu: []
+    menu: [],
+    breadNavList: []
   },
   mutations: {
     [types.SET_MENU] (state, menu) {
       state.menu = menu
+    },
+    [types.SET_BREAD_NAV] (state, list) {
+      state.breadNavList = list
     }
   },
   actions: {
