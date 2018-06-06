@@ -5,13 +5,13 @@
                 {
                     "id": 1001,
                     "name": "表格",
-                    "url": "/model/Table",
+                    "url": "/model/table",
                     "visible": true
                 },
                 {
                     "id": 1002,
-                    "name": "特卖订单列表",
-                    "url": "/assets/#/sales/orders",
+                    "name": "富文本",
+                    "url": "/model/editor",
                     "visible": true
                 },
                 {

@@ -45,7 +45,7 @@
 import preLine from './line.vue'
 import intrItem from './intrItem.vue'
 import Tags from './tagsComponent.vue'
-import Editor from '~src/components/medium-editor.vue'
+import Editor from '~src/components/mediumEditor/index.vue'
 import compareObj from '~src/tool/compareObj'
 
 export default{

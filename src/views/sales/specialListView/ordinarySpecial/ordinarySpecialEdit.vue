@@ -84,7 +84,7 @@
 </template>
 <script>
   import * as types from '~src/store/types'
-  import editor from '~src/components/medium-editor.vue'
+  import editor from '~src/components/mediumEditor/index.vue'
   import intrItem from '../../editView/components/intrItem.vue'
   import preLine from '../../editView/components/line.vue'
   import inlineItem from '../../editView/components/inlineItem.vue'

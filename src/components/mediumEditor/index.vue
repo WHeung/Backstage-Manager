@@ -44,49 +44,49 @@ export default {
         forcePlainText: false,
         cleanPastedHTML: true,
         cleanPaste: function (text) {
-            var i, elList, tmp, workEl,
-                multiline = /<p|<br|<div/.test(text),
-                replacements = [].concat(
-                    this.preCleanReplacements || [],
-                    createReplacements(),
-                    this.cleanReplacements || []);
+          var i, elList, tmp, workEl
+          var multiline = /<p|<br|<div/.test(text)
+          var replacements = [].concat(
+            this.preCleanReplacements || [],
+            createReplacements(),
+            this.cleanReplacements || [])
 
-            for (i = 0; i < replacements.length; i += 1) {
-                text = text.replace(replacements[i][0], replacements[i][1]);
+          for (i = 0; i < replacements.length; i += 1) {
+            text = text.replace(replacements[i][0], replacements[i][1])
+          }
+
+          if (!multiline) {
+            return this.pasteHTML(text)
+          }
+
+          // create a temporary div to cleanup block elements
+          tmp = this.document.createElement('div')
+
+          // double br's aren't converted to p tags, but we want paragraphs.
+          tmp.innerHTML = '<p>' + text.split('<br><br>').join('</p><p>') + '</p>'
+
+          // block element cleanup
+          elList = tmp.querySelectorAll('a,p,div,br')
+          for (i = 0; i < elList.length; i += 1) {
+            workEl = elList[i];
+            console.log(workEl)
+            // Microsoft Word replaces some spaces with newlines.
+            // While newlines between block elements are meaningless, newlines within
+            // elements are sometimes actually spaces.
+            workEl.innerHTML = workEl.innerHTML.replace(/\n/gi, ' ')
+
+            switch (workEl.nodeName.toLowerCase()) {
+            case 'p':
+            case 'div':
+              filterCommonBlocks(workEl)
+              break
+            case 'br':
+              this.filterLineBreak(workEl)
+              break
             }
+          }
 
-            if (!multiline) {
-                return this.pasteHTML(text);
-            }
-
-            // create a temporary div to cleanup block elements
-            tmp = this.document.createElement('div');
-
-            // double br's aren't converted to p tags, but we want paragraphs.
-            tmp.innerHTML = '<p>' + text.split('<br><br>').join('</p><p>') + '</p>';
-
-            // block element cleanup
-            elList = tmp.querySelectorAll('a,p,div,br');
-            for (i = 0; i < elList.length; i += 1) {
-                workEl = elList[i];
-                console.log(workEl)
-                // Microsoft Word replaces some spaces with newlines.
-                // While newlines between block elements are meaningless, newlines within
-                // elements are sometimes actually spaces.
-                workEl.innerHTML = workEl.innerHTML.replace(/\n/gi, ' ');
-
-                switch (workEl.nodeName.toLowerCase()) {
-                    case 'p':
-                    case 'div':
-                        filterCommonBlocks(workEl);
-                        break;
-                    case 'br':
-                        this.filterLineBreak(workEl);
-                        break;
-                }
-            }
-
-            this.pasteHTML(tmp.innerHTML);
+          this.pasteHTML(tmp.innerHTML)
         },
         cleanAttrs: ['class', 'style', 'align'],
         cleanTags: ['meta']
@@ -100,7 +100,7 @@ export default {
     this.api = new MediumEditor(this.$refs.editor, this.options)
     this.api.subscribe('editableInput', (event) => {
       let content = this.api.getContent(0)
-       // 在使用了colorPicker 之后，不知道为何，'underline', 'strikethrough' 按钮会使用text-decoration-line属性而不是默认的text-decoration属性，导致移动端该属性有可能不生效
+       // 在使用了colorPicker 之后，'underline', 'strikethrough' 按钮会使用text-decoration-line属性而不是默认的text-decoration属性，导致移动端该属性有可能不生效
       content = content.replace(/text-decoration-line/g, 'text-decoration')
       console.log(content)
       this.$emit('input', content)
@@ -108,13 +108,13 @@ export default {
   }
 }
 function filterCommonBlocks (el) {
-    console.log(el)
-    if (/^\s*$/.test(el.textContent) && el.innerHTML.indexOf('<img') < 0 && el.parentNode) {
-        el.parentNode.removeChild(el);
-    }
+  console.log(el)
+  if (/^\s*$/.test(el.textContent) && el.innerHTML.indexOf('<img') < 0 && el.parentNode) {
+    el.parentNode.removeChild(el)
+  }
 }
 
-function createReplacements() {
+function createReplacements () {
   return [
     // Remove anything but the contents within the BODY element
     [new RegExp(/^[\s\S]*<body[^>]*>\s*|\s*<\/body[^>]*>[\s\S]*$/g), ''],
@@ -161,6 +161,7 @@ function createReplacements() {
   ]
 }
 </script>
+
 <style lang="stylus">
 .medium-editor-toolbar-select
   width 30%
@@ -191,8 +192,6 @@ function createReplacements() {
 </style>
 
 <style lang="stylus" module>
-.main
-  width 377px
 
 .toolBar
   position relative
