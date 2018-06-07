@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.main">
-    <Editor :class="$style.editor" v-model="editData"></Editor>
-    <Editor :class="$style.editor" v-model="editData"></Editor>
+    <Editor :class="$style.editor" v-model="editData1"></Editor>
+    <Editor :class="$style.editor" v-model="editData2"></Editor>
   </div>
 </template>
 
@@ -14,7 +14,8 @@ export default {
   components: { Editor },
   data () {
     return {
-      editData: ''
+      editData1: '',
+      editData2: ''
     }
   },
   created () {

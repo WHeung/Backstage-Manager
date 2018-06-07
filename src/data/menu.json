@@ -16,14 +16,8 @@
                 },
                 {
                     "id": 1003,
-                    "name": "酒店信息管理",
-                    "url": "/assets/#/sales/hotels",
-                    "visible": true
-                },
-                {
-                    "id": 1004,
-                    "name": "专题页",
-                    "url": "/assets/#/sales/special",
+                    "name": "基本表单",
+                    "url": "/model/input",
                     "visible": true
                 }
             ],

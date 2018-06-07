@@ -15,6 +15,7 @@ const visaTaiwanIndex = () => import(/* webpackChunkName: "order" */ '~src/views
 const visaTaiwanDetail = () => import(/* webpackChunkName: "order" */ '~src/views/visaTaiwan/detailView/index.vue')
 const modelTable = () => import(/* webpackChunkName: "model" */ '~src/views/model/TableView/index.vue')
 const modelEditor = () => import(/* webpackChunkName: "model" */ '~src/views/model/EditorView/index.vue')
+const modelInput = () => import(/* webpackChunkName: "model" */ '~src/views/model/InputView/index.vue')
 
 Vue.use(Router)
 
@@ -34,6 +35,7 @@ export default new Router({
     { path: '/visatw', name: 'visaTwOrderList', component: visaTaiwanIndex },
     { path: '/visatw/detail', name: 'visaTwOrder', component: visaTaiwanDetail },
     { path: '/model/table', name: 'modelTable', component: modelTable },
-    { path: '/model/editor', name: 'modelEditor', component: modelEditor }
+    { path: '/model/editor', name: 'modelEditor', component: modelEditor },
+    { path: '/model/input', name: 'modelInput', component: modelInput }
   ]
 })
