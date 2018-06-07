@@ -19,6 +19,12 @@
                     "name": "基本表单",
                     "url": "/model/input",
                     "visible": true
+                },
+                {
+                    "id": 1004,
+                    "name": "tab页",
+                    "url": "/model/tab",
+                    "visible": true
                 }
             ],
             "icon": "fa-cogs",
