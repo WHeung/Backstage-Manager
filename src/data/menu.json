@@ -25,6 +25,12 @@
                     "name": "tab页",
                     "url": "/model/tab",
                     "visible": true
+                },
+                {
+                    "id": 1005,
+                    "name": "完整例子",
+                    "url": "/model/full",
+                    "visible": true
                 }
             ],
             "icon": "fa-cogs",

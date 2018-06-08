@@ -17,6 +17,7 @@ const modelTable = () => import(/* webpackChunkName: "model" */ '~src/views/mode
 const modelEditor = () => import(/* webpackChunkName: "model" */ '~src/views/model/EditorView/index.vue')
 const modelInput = () => import(/* webpackChunkName: "model" */ '~src/views/model/InputView/index.vue')
 const modelTab = () => import(/* webpackChunkName: "model" */ '~src/views/model/TabView/index.vue')
+const modelFull = () => import(/* webpackChunkName: "model" */ '~src/views/model/FullView/index.vue')
 
 Vue.use(Router)
 
@@ -38,6 +39,7 @@ export default new Router({
     { path: '/model/table', name: 'modelTable', component: modelTable },
     { path: '/model/editor', name: 'modelEditor', component: modelEditor },
     { path: '/model/input', name: 'modelInput', component: modelInput },
-    { path: '/model/tab', name: 'modelTab', component: modelTab }
+    { path: '/model/tab', name: 'modelTab', component: modelTab },
+    { path: '/model/full', name: 'modelFull', component: modelFull }
   ]
 })

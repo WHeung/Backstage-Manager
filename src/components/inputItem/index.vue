@@ -22,7 +22,6 @@ export default {
   background-color #ffffff
   min-height 36px
   line-height 36px
-  padding-left 20px
   display flex
 
 .tit
@@ -33,7 +32,7 @@ export default {
     display inline-block
     height 36px
     line-height 36px
-    font-size 15px
+    font-size 14px
     color #606266
     vertical-align top
 
