@@ -11,7 +11,8 @@
     "build:test": "cross-env NODE_ENV=development webpack --config build/webpack.config.js",
     "build:pro": "cross-env NODE_ENV=production webpack --config build/webpack.config.js",
     "analyzer": "rimraf dist && cross-env NODE_ENV=analyzer webpack --config build/webpack.config.js",
-    "stats": "webpack --profile --json > stats.json --config build/webpack.config.js"
+    "stats": "webpack --profile --json > stats.json --config build/webpack.config.js",
+    "build-node": "node build/move_node.js"
   },
   "engines": {
     "node": ">=6.11.5"
